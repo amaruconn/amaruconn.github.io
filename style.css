@@ -25,13 +25,13 @@ a {
   font-weight: 500;      /* makes it pop a bit */
 }
 
+a:visited {
+  text-decoration: line-through;
+}
+
 a:hover {
   color: #80deea;        /* lighter on hover */
   text-decoration: underline;
-}
-
-a:visited {
-  text-decoration: line-through;
 }
 
 a:visited:hover {
