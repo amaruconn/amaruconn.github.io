@@ -38,6 +38,12 @@ a:visited:hover {
   text-decoration: line-through;
   color: rgba(255,255,255,.5);
 }
+
+ul {
+  list-style-type: square;
+}
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", "Comic Sans", sans-serif;
   font-weight: 900;
+
+  
