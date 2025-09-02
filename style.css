@@ -1,3 +1,6 @@
 body {
-  background-color: red;
+  background-color: #34344A;
+  
+  background-image: url('images/cartographer.png');
+  background-size: cover;
 }
