@@ -8,8 +8,11 @@ body {
   background-size: cover;
 
   font-family: sans-serif;
-  color: #e0f0ff; /* soft, readable off-white with blue tint */
+  color: #e0f0ff;
+
+  padding: 2rem 3rem; /* pushes text inward from edges */
 }
+
 
 /* Hyperlinks */
 a {
