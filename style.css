@@ -10,7 +10,7 @@ body {
   font-family: sans-serif;
   color: #e0f0ff;
 
-  padding: 2rem 3rem; /* pushes text inward from edges */
+  padding: 1rem 3rem; /* pushes text inward from edges -> 1 from top 3 from left*/
 }
 
 
