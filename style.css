@@ -6,5 +6,7 @@ body {
               linear-gradient(to bottom, #1e3c72, #2a5298);
   background-attachment: fixed;
   background-size: cover;
+
   font-family: sans-serif;
+  color: #f5f5f5;
 }
