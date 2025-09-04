@@ -12,8 +12,11 @@ body {
   font-family: "Lato", sans-serif;
   color: #e0f0ff;
 
-  padding: 1rem 3rem; /* pushes text inward from edges -> 1 from top 3 from left*/
+  /* padding: 1rem 3rem; /* pushes text inward from edges -> 1 from top 3 from left*/
 
+  display: flex;
+  flex-wrap: wrap; /* allows stacking on smaller screens */
+  gap: 1rem;
   /* next part for class */
 }
 
@@ -45,5 +48,31 @@ ul {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", "Comic Sans", sans-serif;
   font-weight: 900;
+
+/* Main content */
+section {
+  flex: 3; /* takes 3/4 width */
+  min-width: 250px; /* ensures it doesn’t shrink too small */
+}
+
+/* Sidebar */
+aside {
+  flex: 1; /* takes 1/4 width */
+  min-width: 200px;
+  background: #f4f4f4;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Responsive: stack aside below section on narrow screens */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  section, aside {
+    width: 100%;
+  }
+}
 
   
