@@ -56,8 +56,9 @@ h1, h2, h3, h4, h5, h6 {
 section {
   flex: 3; /* takes 3/4 width */
   min-width: 250px; /* ensures it doesn’t shrink too small */
-  background: #45b6fe;
+  background: rgba(69, 182, 254, 0.8); /* blue with 80% opacity */
   border-radius: 24px;
+  padding: 1rem;
 }
 
 /* Sidebar */
@@ -66,7 +67,7 @@ aside {
   min-width: 200px;
   padding: 1rem;
   border-radius: 8px;
-  background: #A47DAB;
+  background: rgba(164, 125, 171, 0.8); /* purple with 80% opacity */
 }
 
 /* Responsive: stack aside below section on narrow screens */
