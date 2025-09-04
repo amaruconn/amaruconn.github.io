@@ -48,7 +48,10 @@ ul {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", "Comic Sans", sans-serif;
   font-weight: 900;
+  width: 100%; /* makes heading span full width */
+  margin-bottom: 1rem;
 
+  
 /* Main content */
 section {
   flex: 3; /* takes 3/4 width */
