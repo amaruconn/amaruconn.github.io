@@ -1,0 +1,246 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Theme */
+:root {
+  --bg: #161616;
+  --text: #e6e6e6;
+  --rail: minmax(300px, 360px);
+  --gap: clamp(12px, 2vw, 24px);
+  --topPad: clamp(16px, 4vh, 48px);
+}
+
+/* Page base */
+html, body { height: 100%; }
+body {
+  font-family: "Bitcount Grid Double", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Layout container */
+.landing {
+  display: grid;
+  grid-template-columns: var(--rail) 1fr;
+  column-gap: var(--gap);
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Left sidebar */
+.left-rail {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Upward justification */
+  padding: var(--topPad) var(--gap) var(--gap) 0;
+  gap: clamp(16px, 3vh, 32px); /* breathing space between monogram, nav, identity */
+}
+
+/* Monogram */
+.monogram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 var(--gap);
+  text-decoration: none;
+}
+.monogram__img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  display: block;
+}
+
+/* Projects nav */
+.projects {
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--gap);
+  max-height: 50vh;
+  overflow: auto;
+  scrollbar-width: thin;
+  margin-top: clamp(8px, 1vh, 16px); /* aligns closer to monogram */
+}
+.project {
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: var(--text);
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--text);
+  letter-spacing: 0.05em;
+  transition: color .2s ease, text-shadow .2s ease, transform .2s ease;
+}
+.project--last { border-bottom: 1px solid var(--text); }
+.project:hover,
+.project:focus {
+  color: #fff;
+  text-shadow:
+    0 0 6px rgba(230,230,230,.55),
+    0 0 14px rgba(230,230,230,.25);
+  outline: none;
+}
+
+/* Identity */
+.identity {
+  margin-top: auto; /* keeps identity pinned at bottom */
+  display: block;
+  text-align: center;
+  padding: 0 var(--gap) var(--gap);
+  text-decoration: none;
+  color: var(--text);
+  transition: color .2s ease, text-shadow .2s ease;
+}
+.identity__name {
+  font-size: clamp(1.6rem, 2.4vw, 2rem);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  font-weight: 300;
+}
+@supports (font-variation-settings: normal) {
+  .identity__name { font-variation-settings: "wght" 300; }
+}
+.identity__title {
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
+  letter-spacing: 0.6em;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.identity:hover,
+.identity:focus {
+  color: #fff;
+  text-shadow:
+    0 0 6px rgba(230,230,230,.55),
+    0 0 14px rgba(230,230,230,.25);
+  outline: none;
+}
+
+/* Content area */
+.content {
+  padding: var(--topPad) var(--gap) var(--gap) var(--gap);
+  min-width: 0;
+}
+
+/* Project Viewer (right box) */
+.viewer {
+  margin-top: 0;
+  border: 1px solid var(--text);
+  border-radius: 12px;
+  padding: clamp(8px, 1.2vw, 16px);
+  background: rgba(255,255,255,0.02);
+  max-height: calc(100vh - var(--topPad) - (var(--gap) * 2));
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollable region */
+.viewer__scroll {
+  max-height: calc(100vh - var(--topPad) - (var(--gap) * 2) - (clamp(8px, 1.2vw, 16px) * 2) - 2px);
+  overflow: auto;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+/* Viewer images */
+.viewer__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: clamp(8px, 1.2vw, 16px);
+  object-fit: contain;
+  transition: filter .2s ease;
+}
+.viewer__img:hover { filter: brightness(1.05); }
+
+/* Page body (text-only pages) */
+.page-body {
+  margin-top: var(--gap);
+  line-height: 1.6;
+}
+.page-body h2 {
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  margin-bottom: 0.5rem;
+}
+
+/* --- Project 2 (ACE x MVAAFF) side-by-side viewer helpers --- */
+:root {
+  --viewer-inner: calc(
+    100vh - var(--topPad) - (var(--gap) * 2) - (clamp(8px, 1.2vw, 16px) * 2) - 2px
+  );
+}
+.viewer--side-by-side .viewer__scroll {
+  height: var(--viewer-inner);
+  max-height: var(--viewer-inner);
+  overflow: hidden;
+}
+.viewer--side-by-side .viewer__row {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1.2vw, 16px);
+}
+.viewer--side-by-side .viewer__img {
+  max-height: 100%;
+  width: auto;
+  max-width: 50%;
+  margin: 0;
+  object-fit: contain;
+}
+
+/* --- Project 3 (Designer Profile) two-spread layout --- */
+.viewer--spreads .viewer__scroll {
+  height: var(--viewer-inner);
+  max-height: var(--viewer-inner);
+  overflow: auto;
+  scrollbar-width: thin;
+}
+.viewer--spreads .spread {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1.2vw, 16px);
+  height: var(--viewer-inner);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.viewer--spreads .spread .viewer__img {
+  display: block;
+  max-height: 100%;
+  max-width: 50%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0;
+}
+
+/* --- Project 4 (FoT Typesetting) single-image fit viewer --- */
+.viewer--single-fit .viewer__scroll {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--viewer-inner);
+  max-height: var(--viewer-inner);
+  overflow: hidden;
+}
+.viewer__img--fit {
+  max-width: 98%;   /* side padding */
+  max-height: 98%;  /* top/bottom padding */
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Small screens */
+@media (max-width: 820px) {
+  .landing {
+    grid-template-columns: 1fr;
+    row-gap: var(--gap);
+  }
+  .left-rail {
+    padding: var(--topPad) var(--gap) 0 var(--gap);
+  }
+  .projects { max-height: none; }
+  .content { padding: var(--topPad) var(--gap) var(--gap); }
+}
